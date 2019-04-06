@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include<cstdio>
+#include<iterator>
 using namespace std;
 long int gcd(long int a, long int b){
   long int r;
@@ -33,10 +34,11 @@ int main(){
     s.insert(last);
     text.push_back(last);
     vector<long int> primes;
-
-    for(auto k: s){
-      primes.push_back(k);
-    }
+    set<long int>::iterator it;
+    for (it = s.begin(); it != s.end(); ++it)
+{
+    primes.push_back(*it); // Note the "*" here
+}
     sort(primes.begin(),primes.end());
    // cout << primes.size()<<endl;
     if(primes.size()<26){
